@@ -23,21 +23,47 @@ function project_init()
 	displayList.btn2.addEventListener("click", test2, false);
 
 	displayList.box = {};
-	displayList.box.link = document.querySelector(".box");
-	displayList.box.deg = 0;
-	displayList.box.speed = 0.4;
+	displayList.box.box0 = {};
+	displayList.box.box1 = {};
+	displayList.box.box2 = {};
+
+	displayList.box.box0.link = document.querySelector(".box0");
+	displayList.box.box1.link = document.querySelector(".box1");
+	displayList.box.box2.link = document.querySelector(".box2");
+
+	displayList.box.box0.deg = 0;
+	displayList.box.box0.speed = 0.2;
+
+	displayList.box.box1.deg = 0;
+	displayList.box.box1.speed = 0.4;
+
+	displayList.box.box2.deg = 0;
+	displayList.box.box2.speed = 0.6;
 
 
 	ENTER_FRAME_init();
-	ENTER_FRAME_add(updateBox);
+	ENTER_FRAME_add(updateBox0);
+	ENTER_FRAME_add(updateBox1);
+	ENTER_FRAME_add(updateBox2);
 	ENTER_FRAME_apply(true);
+}
+
+function test0(event)
+{
+	event.preventDefault();
+
+	displayList.box.box0.speed *= 1.2;
+	displayList.box.box1.speed *= 1.2;
+	displayList.box.box2.speed *= 1.2;
 }
 
 function test1(event)
 {
 	event.preventDefault();
 
-	displayList.box.speed /= 1.2;
+	displayList.box.box0.speed /= 1.2;
+	displayList.box.box1.speed /= 1.2;
+	displayList.box.box2.speed /= 1.2;
 }
 
 function test2(event)
@@ -47,8 +73,20 @@ function test2(event)
 	enterFrame_live ? ENTER_FRAME_apply(false) : ENTER_FRAME_apply(true);
 }
 
-function updateBox()
+function updateBox0()
 {
-	displayList.box.deg += displayList.box.speed;
-	displayList.box.link.style.transform = 'rotate(' + displayList.box.deg + 'deg)';
+	displayList.box.box0.deg += displayList.box.box0.speed;
+	displayList.box.box0.link.style.transform = 'rotate(' + displayList.box.box0.deg + 'deg)';
+}
+
+function updateBox1()
+{
+	displayList.box.box1.deg += displayList.box.box1.speed;
+	displayList.box.box1.link.style.transform = 'rotate(' + displayList.box.box1.deg + 'deg)';
+}
+
+function updateBox2()
+{
+	displayList.box.box2.deg += displayList.box.box2.speed;
+	displayList.box.box2.link.style.transform = 'rotate(' + displayList.box.box2.deg + 'deg)';
 }

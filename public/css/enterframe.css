@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+:root
+{
+	--size: 100px;
+}
+
 html, body
 {
 	width: 100%;
@@ -20,15 +25,34 @@ html, body
 
 .box
 {
-	width: 100px;
-	height: 100px;
-
 	position: absolute;
 	left: 0; right: 0; top: 0; bottom: 0;
 
 	margin: auto;
+}
+
+.box0
+{
+	width: var(--size);
+	height: var(--size);
 
 	background: #ff0033;
+}
+
+.box1
+{
+	width: calc(var(--size) * 2);
+	height: calc(var(--size) * 2);
+
+	background: blue;
+}
+
+.box2
+{
+	width: calc(var(--size) * 3);
+	height: calc(var(--size) * 3);
+
+	background: lime;	
 }
 
 .dev

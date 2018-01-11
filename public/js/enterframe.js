@@ -3,13 +3,6 @@
 var enterFrame_list;
 var enterFrame_live;
 
-function test0(event)
-{
-	event.preventDefault();
-
-	displayList.box.speed *= 1.2;
-}
-
 function ENTER_FRAME_init()
 {
 	enterFrame_list = new Array();
