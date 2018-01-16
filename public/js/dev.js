@@ -40,7 +40,6 @@ function project_init()
 	displayList.box.box2.deg = 0;
 	displayList.box.box2.speed = 0.6;
 
-
 	ENTER_FRAME_init();
 	ENTER_FRAME_add(updateBox0);
 	ENTER_FRAME_add(updateBox1);
@@ -70,7 +69,7 @@ function test2(event)
 {
 	event.preventDefault();
 
-	enterFrame_live ? ENTER_FRAME_apply(false) : ENTER_FRAME_apply(true);
+	enterFrame.enterFrame_live ? enterFrame.ef_apply(false) : enterFrame.ef_apply(true);
 }
 
 function updateBox0()
