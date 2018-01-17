@@ -2,10 +2,6 @@
 var trace = function(msg){ console.log(msg); };
 
 var displayList;
-var runProto = false;
-var runClass = false;
-var enterFrame;
-var refresh;
 
 function pageLoad_init()
 {
@@ -44,34 +40,11 @@ function project_init()
 	displayList.box.box2.deg = 0;
 	displayList.box.box2.speed = 0.6;
 
-	if(runProto)
-	{
-		enterFrame = new ENTER_FRAME();
-		enterFrame.addEF(updateBox0);
-		enterFrame.addEF(updateBox1);
-		enterFrame.addEF(updateBox2);
-		enterFrameEventFunct = enterFrame.eventEF;
-		enterFrame.applyEF(true);
-	}
-
-	else if(runClass)
-	{
-		enterFrame = new ENTER_FRAME_CL();
-		refresh = new Refresh(window);
-		enterFrame.addEF(updateBox0);
-		enterFrame.addEF(updateBox1);
-		enterFrame.addEF(updateBox2);
-		refresh.applyEF(true);
-	}
-
-	else
-	{
-		ENTER_FRAME_init();
-		ENTER_FRAME_add(updateBox0);
-		ENTER_FRAME_add(updateBox1);
-		ENTER_FRAME_add(updateBox2);
-		ENTER_FRAME_apply(true);
-	}
+	ENTER_FRAME_init();
+	ENTER_FRAME_add(updateBox0);
+	ENTER_FRAME_add(updateBox1);
+	ENTER_FRAME_add(updateBox2);
+	ENTER_FRAME_apply(true);
 }
 
 function test0(event)
